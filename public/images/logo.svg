@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 907.08 327.18" style="enable-background:new 0 0 907.08 327.18;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;fill:#273D4A;}
+	.st1{fill:#D9E9F3;}
+	.st2{fill:#97C0DD;}
+	.st3{fill:#E84025;}
+	.st4{fill:none;stroke:#234086;stroke-width:0.5;stroke-miterlimit:10;}
+	.st5{fill:#FDB614;}
+	.st6{fill:#FFFFFF;}
+	.st7{font-family:'JosefinSans-Bold';}
+	.st8{font-size:103.8788px;}
+	.st9{letter-spacing:2;}
+	.st10{font-size:70.882px;}
+	.st11{letter-spacing:21;}
+</style>
+<rect x="-46.46" y="-134.71" class="st0" width="1000" height="584.59"/>
+<g>
+	<path class="st1" d="M357.23,93.05c0,43.89-41.56,79.47-102.31,79.47H26.68l0,0c47.98,0,47.98-158.94,0-158.94l0,0h228.24
+		C315.67,13.57,357.23,49.16,357.23,93.05L357.23,93.05z"/>
+	<path class="st2" d="M21.78,20.06l242.14,0c17.94,0,30.9,1.93,52.32,12.75c35,17.68,32.44,41.59,30.36,76.49
+		C346.43,111.39,470.3,13.57,21.78,20.06z"/>
+	<path class="st3" d="M249.45,183.94H21.78c-7.83,0-14.18-4.59-14.18-10.24c0-5.66,6.35-10.24,14.18-10.24h227.68
+		c58.02,0,97.54-31.45,97.54-70.12s-39.52-70.12-97.54-70.12H21.78c-7.83,0-14.18-4.59-14.18-10.24S13.95,2.74,21.78,2.74h227.68
+		c73.66,0,125.89,40.64,125.89,90.6S323.11,183.94,249.45,183.94z"/>
+	<line class="st4" x1="86.07" y1="55.49" x2="232.03" y2="55.49"/>
+	<line class="st4" x1="241.26" y1="55.49" x2="267.87" y2="55.49"/>
+	<line class="st4" x1="191.6" y1="72.38" x2="267.87" y2="72.38"/>
+	<line class="st4" x1="86.07" y1="72.38" x2="176.16" y2="72.38"/>
+	<line class="st4" x1="86.07" y1="89.27" x2="267.87" y2="89.27"/>
+	<line class="st4" x1="86.07" y1="106.15" x2="213.95" y2="106.15"/>
+	<line class="st4" x1="230.5" y1="106.15" x2="267.87" y2="106.15"/>
+	<line class="st4" x1="86.07" y1="123.04" x2="267.87" y2="123.04"/>
+	<line class="st4" x1="86.07" y1="139.93" x2="267.87" y2="139.93"/>
+	<path class="st5" d="M195.8,322.99l-41.93-41.04c-1.95-1.91-5.07-1.91-7.02,0l-41.93,41.04c-3.17,3.11-8.52,0.86-8.52-3.58V105.73
+		h107.92v213.68C204.33,323.85,198.98,326.1,195.8,322.99z"/>
+	<text transform="matrix(1 0 0 1 408.7539 137.267)" class="st6 st7 st8 st9">Pronto</text>
+	<text transform="matrix(1 0 0 1 253.6103 277.7372)" class="st6 st7 st10 st11">BookStore</text>
+</g>
+</svg>

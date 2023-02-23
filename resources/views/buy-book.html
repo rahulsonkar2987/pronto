@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1,user-scalable=0"
+    />
+    <title>Pronto Book Store</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png" sizes="32x32" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/animate.min.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/amit.css" />
+  </head>
+
+  <body>
+    <!-- Navber Section Starts -->
+    <nav class="navbar bg-navbar sticky-top mobile">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="\"
+          ><img src="images/logo.png" class="img-fluid" alt="Image goes here"
+        /></a>
+        <div class="me-0">
+          <a class="topnav" href="#">
+            <i class="bi bi-cart"></i>
+          </a>
+          <a
+            class="topnav"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#mobileNavbar"
+            aria-controls="mobileNavbar"
+          >
+            <i class="bi bi-list"></i>
+          </a>
+        </div>
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="mobileNavbar"
+          aria-labelledby="mobileNavbarLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileNavbarLabel">
+              <img
+                src="images/logo.png"
+                class="img-fluid"
+                alt="Image goes here"
+              />
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            >
+              <i class="bi bi-x"></i>
+            </button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a
+                  class="nav-link naveffects active"
+                  aria-current="page"
+                  href="#"
+                  data-text="Home"
+                  ><span>Home</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link naveffects" href="#" data-text="How it Works"
+                  ><span>How it Works</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link naveffects" href="#" data-text="Buy Books"
+                  ><span>Buy Books</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link naveffects" href="#" data-text="Sell Books"
+                  ><span>Sell Books</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link naveffects" href="#" data-text="Contact Us"
+                  ><span>Contact Us</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link naveffects" href="#" data-text="Login" data-text="Login" data-bs-toggle="modal" data-bs-target="#login-form" ><span>Login</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link naveffects" href="/sign-up.html" data-text="Register"><span>Register</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg bg-navbar sticky-top desktop">
+      <div class="container">
+        <a class="navbar-brand" href="\"
+          ><img src="images/logo.png" class="img-fluid" alt="Image goes here"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link naveffects active"
+                aria-current="page"
+                href="#"
+                data-text="Home"
+                ><span>Home</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link naveffects" href="#" data-text="How it Works"
+                ><span>How it Works</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link naveffects" href="#" data-text="Buy Books"
+                ><span>Buy Books</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link naveffects" href="#" data-text="Sell Books"
+                ><span>Sell Books</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link naveffects" href="#" data-text="Contact Us"
+                ><span>Contact Us</span></a
+              >
+            </li>
+          </ul>
+          <ul class="navbar-nav nav-right me-0">
+            <li class="nav-item">
+              <a class="nav-link naveffects" href="#" data-text="Login" data-text="Login" data-bs-toggle="modal" data-bs-target="#login-form" ><span>Login</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link naveffects" href="/sign-up.html" data-text="Register"
+                ><span>Register</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#"><img src="images/cart.png" class="img-fluid" alt="Image goes here"/>
+              <div class="cart-link">12</div></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar Section Ends -->
+
+    <!-- Breadcrumb Starts -->
+
+    <section class="breadcrumbs">
+      <div class="container">
+        <div class="row align-items-center clearfix">
+          <div class="col-12">
+            <ul class="breadcrumbs-links">
+              <li><a href="">Home</a></li>
+              <li>The Power of Pivoting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Breadcrumb End -->
+
+    <!-- buy-book-section Start-->
+    <section class="book-details-section desktop">
+      <div class="container">
+        <div class="row clearfix">
+          <div class="col-12 col-md-3 col-lg-4 text-center">
+            <div class="bg-f9f9f9">
+                <img src="images/book-1.png" class="img-showcase" alt="image goes here" />
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-5">
+            <div class="book-description">
+              <h3>The Power of Pivoting How to Embrance change and Create a life you love</h3>
+              <p>By: <span> Monica Ortega </span></p>
+              <div class="rating">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star"></i><p>(4.5 Rating)</p>
+              </div>
+              <ul>
+                <li>ISBN-13: 9781743532522</li>
+                <li>ISBN-10: 172642252X</li>
+                <li>Publisher: Riverhead Books</li>
+                <li>Released: Sep 13, 2022</li>
+                <li>Format: Hardcover, 255 pages</li>
+              </ul>
+
+            </div>
+          </div>
+          <div class="col-12 col-md-3 col-lg-3 text-center">
+            <div class="action-container">
+                <h5>$60.00</h5>
+                <p class="in-stock">In stock</p>
+                <div class="row gx-2 justify-content-center mb-3 quantity">
+                    <label for="quantity" class="col-3 col-sm-4 col-form-label text-end">Quantity</label>
+                    <div class="col-3 col-sm-3 ">
+                      <input type="number" class="form-control" id="quantity" value="2">
+                    </div>
+                    <a href="">Want More Quantity?</a>
+                </div>
+                <a href="" class="btn btn-theme w-75 mb-2">Buy on Amazon </a>
+                <a href="" class="btn btn-theme w-75 mb-2">Add to Cart</a>
+                <a href="" class="btn btn-outline-theme sell-btn w-75">Sell Book</a>
+            </div>
+          </div>
+        </div>
+        <div class="row book-overview clearfix">
+            <div class="col-12 col-lg-12">
+                <h5>Book Overview</h5>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing.</p>
+            
+            </div>
+        </div>
+      </div>
+    </section>
+    <!-- buy-book-section End -->
+
+    <section class="book-details-section mobile">
+      <div class="container">
+        <div class="row">
+          <div class="book-description">
+              <div class="col-12">
+                <h3>The Power of Pivoting How to Embrance change and Create a life you love</h3>
+                <p>By: <span> Monica Ortega </span></p>
+                  <div class="col-12">
+                      <div class="rating">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star"></i>
+                        <i class="bi bi-star"></i><p>(4.5 Rating)</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-12">
+                <div class="bg-f9f9f9 text-center">
+                  <img src="images/book-1.png" class="img-showcase" alt="image goes here" />
+                </div>
+              </div>
+              <ul>
+                <li>ISBN-13: 9781743532522</li>
+                <li>ISBN-10: 172642252X</li>
+                <li>Publisher: Riverhead Books</li>
+                <li>Released: Sep 13, 2022</li>
+                <li>Format: Hardcover, 255 pages</li>
+              </ul>
+              <div class="col-12 text-center">
+                <div class="action-container">
+                    <h5>$60.00</h5>
+                    <p class="in-stock">In stock</p>
+                    <div class="row gx-2 justify-content-center mb-3 quantity">
+                        <label for="quantity" class="col-3 col-sm-4 col-form-label text-end">Quantity</label>
+                        <div class="col-3 col-sm-3 ">
+                          <input type="number" class="form-control" id="quantity" value="2">
+                        </div>
+                        <a href="">Want More Quantity?</a>
+                    </div>
+                    <a href="" class="btn btn-theme w-75 mb-2">Buy on Amazon </a>
+                    <a href="" class="btn btn-theme w-75 mb-2">Add to Cart</a>
+                    <a href="" class="btn btn-outline-theme sell-btn w-75">Sell Book</a>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+     <!-- Similar Book Section Starts -->
+     <section class="similar-books">
+        <div class="container">
+          <div class="row cleaarfix">
+            <div class="col-12 text-center">
+              <h2>Similar Books</h2>
+            </div>
+            <div class="col-12">
+              <div class="owl-carousel best-sellers">
+                <div class="item">
+                  <div class="books-grid">
+                    <div class="books-image">
+                      <img src="images/book-1.png" alt="Image goes here" />
+                      <div class="action animate__animated animate__fadeIn">
+                        <a href="#" class="btn btn-theme">Add to Cart <i class="bi bi-cart-plus"></i></a>
+                      </div>
+                    </div>
+                    <h4 class="book-title">Power of Pivoting</h4>
+                    <div class="book-ratings">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
+                    </div>
+                    <div class="book-price"><i class="bi bi-currency-dollar"></i>60.00</div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="books-grid">
+                    <div class="books-image">
+                      <img src="images/book-2.png" alt="Image goes here" />
+                      <div class="action animate__animated animate__fadeIn">
+                        <a href="#" class="btn btn-theme">Add to Cart <i class="bi bi-cart-plus"></i></a>
+                      </div>
+                    </div>
+                    <h4 class="book-title">Summer Holiday</h4>
+                    <div class="book-ratings">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
+                    </div>
+                    <div class="book-price"><i class="bi bi-currency-dollar"></i>60.00</div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="books-grid">
+                    <div class="books-image">
+                      <img src="images/book-3.png" alt="Image goes here" />
+                      <div class="action animate__animated animate__fadeIn">
+                        <a href="#" class="btn btn-theme">Add to Cart <i class="bi bi-cart-plus"></i></a>
+                      </div>
+                    </div>
+                    <h4 class="book-title">Mind of a Leader</h4>
+                    <div class="book-ratings">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
+                    </div>
+                    <div class="book-price"><i class="bi bi-currency-dollar"></i>60.00</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Similar Book Section Ends -->
+
+     <!-- testimonial-customer-review start -->
+     <section class="customer-review-section">
+      <div class="container">
+        <div class="row clearfix">
+          <div class="col-12">
+            <h2>Customer Review</h2>
+          </div>
+          <div class="col-12">
+            <div class="review-conatiner">
+              <div class="review-inner">
+                <img src="images/william-roy.png" alt="Image" />
+                  <div class="review-content">
+                    <h5>Williams roy</h5>
+                    <div class="rating">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
+                      <p>(4.5 Rating)</p>
+                    </div>
+                  </div>
+              </div>
+              <p class="rew-txt">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing.</p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="review-conatiner">
+              <div class="review-inner">
+                <img src="images/william-roy.png" alt="Image" />
+                  <div class="review-content">
+                    <h5>Williams roy</h5>
+                    <div class="rating">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
+                      <p>(4.5 Rating)</p>
+                    </div>
+                  </div>
+              </div>
+              <p class="rew-txt">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing.</p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="review-conatiner">
+              <div class="review-inner">
+                <img src="images/william-roy.png" alt="Image" />
+                  <div class="review-content">
+                    <h5>Williams roy</h5>
+                    <div class="rating">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
+                      <p>(4.5 Rating)</p>
+                    </div>
+                  </div>
+              </div>
+              <p class="rew-txt">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing.</p>
+            </div>
+          </div>
+          <div class="row text-center">
+            <a href="" class="color-FFB100" > Show More</a>
+          </div>
+        </div>
+      </div>
+     </section>
+     
+     <!-- testimonial-customer-review end-->
+
+
+    <!-- Footer Starts -->
+    <footer>
+      <div class="ft-book-1"></div>
+      <div class="ft-book-2"></div>
+      <div class="ft-book-3"></div>
+      <div class="ft-book-4"></div>
+      <div class="container">
+        <div class="row clearfix">
+          <div class="col-12 col-lg-3">
+            <img
+              src="images/logo.png"
+              class="img-fluid mb-4"
+              alt="Image goes here"
+            />
+            <p class="footer-text">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+            </p>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="ft-title">Important Links</div>
+            <ul class="ft-links">
+              <li><a href="#">How it Works</a></li>
+              <li><a href="#">Buy Books</a></li>
+              <li><a href="#">Sell Books</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="ft-title">Help</div>
+            <ul class="ft-links">
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Payments</a></li>
+              <li><a href="#">Shipping</a></li>
+              <li><a href="#">Cancellation & Returns</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-3">
+            <div class="ft-title">Contact Us</div>
+            <ul class="ft-links">
+              <li>Phone - <a href="tel:9999999999">+91-9999999999</a></li>
+              <li>
+                Email -
+                <a href="mailto:info@prontobookstore.com"
+                  >info@prontobookstore.com</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-12 text-center">
+            <ul class="slinks">
+              <div class="ft-title my-0 me-3">Follow Us</div>
+              <li class="facebook">
+                <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+              </li>
+              <li class="twitter">
+                <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+              </li>
+              <li class="linkedin">
+                <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="statusbar">
+        <div class="container">
+          <div class="row clearfix">
+            <div class="col-12 col-lg-6">
+              <p class="ft-copyright">Copyright ©2023 Pronto Bookstore</p>
+            </div>
+            <div class="col-12 col-lg-6">
+              <p class="ft-developer">
+                Design & Developed by
+                <a href="https://digiinteracts.com/" target="_blank"
+                  >Digi Interacts</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer Ends -->
+
+  <!--Login form Modal AMIT -->
+  <div class="modal fade login" id="login-form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="myform">
+              <h1 class="text-center">Login</h1>            
+              <div class="row gx-3 clearfix">
+                <div class="col-12 col-lg-6">
+                        <a href="" class="btn d-block fb wave-effect"> <i class="fa fa-facebook"></i> Continue with Facebook</a>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <a href="" class=" btn d-block google wave-effect"><i class="fa fa-google"></i> Continue with Google</a>
+                </div>
+              </div>
+              <div class="separator clearfix"></div>
+              <form action="">
+                <div class="mb-3">
+                    <input type="email" placeholder="Email Address" required class="form-control">
+                </div>
+                <div class="mb-3">
+                  <div class="password-field d-flex align-items-center">
+                    <input type="password" required class="form-control" autocomplete="off" placeholder="Password" id="password" />
+                    <i class=" pass-hide bi bi-eye-slash" id="togglePassword" ></i>
+                  </div>
+                    <span class="pt-2">
+                      <a href="\" class="float-right f-password">Forgot Password</a>
+                    </span>
+                </div>
+                <div class="forgot-password">
+                </div>
+                <input type="submit" id="submit" name="submit" value="Login" class="w-100" />
+                <div class="options text-center pt-3">
+                    Not a Member yet? <a href="sign-up.html">Create Account</a>
+                </div>
+
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Login Modal End -->
+
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/password-show.js"></script>
+    <script>
+      $(".best-sellers").owlCarousel({
+        loop: true,
+        margin: 30,
+        nav: true,
+        autoplay: true,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 4,
+          },
+          1000: {
+            items: 6,
+          },
+        },
+      });
+      $(".testimonials").owlCarousel({
+        loop: true,
+        margin: 30,
+        nav: true,
+        autoplay: true,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 1,
+          },
+          1000: {
+            items: 2,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
