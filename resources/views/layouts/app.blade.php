@@ -37,7 +37,7 @@
      @include('layouts.include.header')
      {{-- header end here  --}}
 
-     <div class="alert  fade {{ session()->has('MESSAGE') ? 'show' : '' }} error_msg" role="alert" data-tor="show:scale.from(0)">
+     <div class="alert  fade {{ session()->has('MESSAGE') ? 'show' : '' }} error_msg" style="position:fixed" role="alert" data-tor="show:scale.from(0)">
         <span>
           @if (session()->has('MESSAGE'))
             {{ session::get('MESSAGE') }}
@@ -147,17 +147,35 @@
             e.preventDefault();
             var id = $(this).data('id');
             var no = $('.noOfItems').text();
-            var self = this;
             $.ajax({
               type: "get",
               url: "{{ route('addToCard.store') }}",
               data: {id:id},
               success: function (get) {
                 if (get.success==true) {
-                  $(self).removeClass('addToCard');
-                  $(self).attr('href',"{{ route('addToCard.index') }}");
-                  $(self).text('View cart');
-                  $('.noOfItems').text(parseInt(no)+1);
+                  $('.noOfItems').text(parseInt(no)+parseInt(get.no));
+                  $(".error_msg span").text(get.msg);
+                  $(".error_msg").addClass('show');
+                  setTimeout(function(){ 
+                    $('.error_msg').removeClass('show'); 
+                  }, 2000);
+                }
+              }
+            });
+        });
+        $(document).on('click','.addToCard_single', function (e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            var quantity = $(".get_quantity").val();
+            var no = $('.noOfItems').text();
+            var self = this;
+            $.ajax({
+              type: "get",
+              url: "{{ route('addToCard.update') }}",
+              data: {id:id,quantity:quantity},
+              success: function (get) {
+                if (get.success==true) {
+                  $('.noOfItems').text(parseInt(no)+parseInt(get.no));
                   $(".error_msg span").text(get.msg);
                   $(".error_msg").addClass('show');
                   setTimeout(function(){ 
@@ -183,14 +201,7 @@
               url: "{{ route('addToCard.update') }}",
               data: {id:id,quantity:quantity},
               success: function (get) {
-                //
-                // if (get.success==true) {
-                //   $(".error_msg span").text(get.msg);
-                //   $(".error_msg").addClass('show');
-                //   setTimeout(function(){ 
-                //     $('.error_msg').removeClass('show'); 
-                //   }, 2000);
-                // }
+              
               }
             });
           });
@@ -201,7 +212,7 @@
             e.preventDefault();
             var id = $(this).data('id');
             // var quantity = $(this).parent('div').child('#quantity').val();
-            alert('quantity');
+            // alert('quantity');
             var rm = this;
             $.ajax({
               type: "get",

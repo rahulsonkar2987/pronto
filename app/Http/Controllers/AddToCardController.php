@@ -46,6 +46,8 @@ class AddToCardController extends Controller
     {
         $id = $request->id;
         $quantity = $request->quantity ?? '1';
+        $noOfItems =0;
+        $msg ='already added';
         if (!ManageBook::where('id',$id)->exists()) {
             return response()->json(['success'=>false,'msg'=>'Something Error please try again.']);
         }
@@ -59,24 +61,28 @@ class AddToCardController extends Controller
                 ]
             ];
             session()->put('buyBookCard',$buyBookCard);
+            $noOfItems++;
+            $msg= 'Added';
         }
         // session add end here 
 
-        // session add quantity start here 
-        if (isset($buyBookCard[$id])) {
-            $buyBookCard[$id]['quantity']++;
-            session()->put('buyBookCard',$buyBookCard);
-        }
+        // // session add quantity start here 
+        // if (isset($buyBookCard[$id])) {
+        //     $buyBookCard[$id]['quantity']=$quantity;
+        //     session()->put('buyBookCard',$buyBookCard);
+        // }
 
         if (!array_key_exists($id,$buyBookCard)) {
             $buyBookCard[$id]=[
                 'quantity'=>$quantity,
                 ];
                 session()->put('buyBookCard',$buyBookCard);
+                $noOfItems++;
+                $msg= 'Added';
         }
 
         // return $buyBookCard;
-        return response()->json(['success'=>true,'msg'=>'Added']);
+        return response()->json(['success'=>true,'msg'=>$msg,'no'=>$noOfItems]);
     }
 
 
@@ -84,6 +90,8 @@ class AddToCardController extends Controller
     {
         $id = $request->id;
         $quantity = $request->quantity;
+        $noOfItems=0;
+        $msg='Added';
 
         if (!ManageBook::where('id',$id)->exists()) {
             return response()->json(['success'=>false,'msg'=>'Something Error please try again.']);
@@ -91,13 +99,23 @@ class AddToCardController extends Controller
 
        $buyBookCard=session()->get('buyBookCard');
 
-        if (array_key_exists($id,$buyBookCard)) {
+       if (!$buyBookCard) {
+            $buyBookCard=[
+                $id=>[
+                    'quantity'=>$quantity,
+                ]
+            ];
+            session()->put('buyBookCard',$buyBookCard);
+            $noOfItems++;
+            $msg= 'Added';
+        }elseif(array_key_exists($id,$buyBookCard)) {
             $buyBookCard[$id]=[
                 'quantity'=>$quantity,
                 ];
                 session()->put('buyBookCard',$buyBookCard);
+            $msg= 'Update';
         }
-        return response()->json(['success'=>true,'msg'=>'Added']);
+        return response()->json(['success'=>true,'msg'=>$msg,'no'=>$noOfItems]);
     }
 
 

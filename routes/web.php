@@ -45,6 +45,7 @@ Route::prefix('add-to-card')->name('addToCard.')->group(function(){
 Route::prefix('search')->name('search.')->group(function(){
     Route::get('buy-book',[SearchController::class,'buyBook'])->name('buyBook');
     Route::get('buy-book/details/{isbn?}',[SearchController::class,'buyBookDetails'])->name('buyBook.Details');
+    
     Route::get('sell-book',[SearchController::class,'sellBook'])->name('sellBook');
     Route::get('amazon-price-history/{isbn?}',[SearchController::class,'amazonPriceHistory'])->name('price.history');
 });

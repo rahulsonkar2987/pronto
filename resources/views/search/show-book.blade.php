@@ -69,19 +69,38 @@ if (isset($data['id'])) {
         </div>
         <div class="col-12 col-md-3 col-lg-3 text-center">
           <div class="action-container">
-              <h5>$60.00</h5>
-              <p class="in-stock">In stock</p>
-              <div class="row gx-2 justify-content-center mb-3 quantity">
-                  <label for="quantity" class="col-3 col-sm-4 col-form-label text-end">Quantity</label>
-                  <div class="col-3 col-sm-3 ">
-                    <input type="number" class="form-control" id="quantity" value="{{ $qnty ?? '' }}">
-                  </div>
-                  <a href="">Want More Quantity?</a>
-              </div>
-              @if (isset($data['id']))
-              <a href="" class="btn btn-theme w-75 mb-2 addToCard" data-id="{{ $data['id'] }}">Add to Cart</a>
+              @if (!empty($_GET['details_page']))
+                <h5>$60.00</h5>
+                <p class="in-stock">In stock</p>
+                <div class="row gx-2 justify-content-center mb-3 quantity">
+                    <label for="quantity" class="col-3 col-sm-4 col-form-label text-end">Quantity</label>
+                    <div class="col-3 col-sm-3 ">
+                      <input type="number" class="form-control get_quantity" id="quantity" value="{{ $qnty ?? '1' }}">
+                    </div>
+                    <a href="">Want More Quantity?</a>
+                </div>
               @else
-              <a href="" class="btn btn-theme w-75 mb-2">Buy on Amazon </a>
+                <select class="form-control" name="" id="">
+                    @foreach ($data['sellPrice']  as $key=>$sell_price)
+                        <option value="">{{ $sell_price }} ({{ $key }})</option>
+                    @endforeach
+                </select>
+                {{-- <p class="in-stock">In stock</p>
+                <div class="row gx-2 justify-content-center mb-3 quantity">
+                    <label for="quantity" class="col-3 col-sm-4 col-form-label text-end">Quantity</label>
+                    <div class="col-3 col-sm-3 ">
+                      <input type="number" class="form-control get_quantity" id="quantity" value="{{ $qnty ?? '1' }}">
+                    </div>
+                    <a href="">Want More Quantity?</a>
+                </div> --}}
+              @endif
+
+              @if (isset($data['id']))
+              <a href="" class="btn btn-theme w-75 mb-2 addToCard_single" data-id="{{ $data['id'] }}">Add to Cart</a>
+              @else
+              @if (isset($_GET['buyBook']))
+                <a href="" class="btn btn-theme w-75 mb-2">View on Amazon</a>
+              @endif
               @endif
               <a href="" class="btn btn-outline-theme sell-btn w-75">Sell Book</a>
           </div>
@@ -144,14 +163,14 @@ if (isset($data['id'])) {
                   <div class="row gx-2 justify-content-center mb-3 quantity">
                       <label for="quantity" class="col-3 col-sm-4 col-form-label text-end">Quantity</label>
                       <div class="col-3 col-sm-3 ">
-                        <input type="number" class="form-control" id="quantity" value="{{ $qnty ?? '' }}">
+                        <input type="number" class="form-control get_quantity" id="quantity" value="{{ $qnty ?? '1' }}">
                       </div>
                       <a href="">Want More Quantity?</a>
                   </div>
                   @if (isset($data['id']))
-                    <a href="" class="btn btn-theme w-75 mb-2 addToCard" data-id="{{ $data['id'] }}">Add to Cart</a>
+                    <a href="" class="btn btn-theme w-75 mb-2 addToCard_single" data-id="{{ $data['id'] }}">Add to Cart</a>
                   @else 
-                  <a href="" class="btn btn-theme w-75 mb-2">Buy on Amazon </a>
+                  <a href="" class="btn btn-theme w-75 mb-2">View on Amazon</a>
                   @endif
                   <a href="" class="btn btn-outline-theme sell-btn w-75">Sell Book</a>
               </div>
@@ -176,7 +195,7 @@ if (isset($data['id'])) {
                   <div class="books-image">
                     <img src="{{ asset($book->image) }}" alt="Image goes here" />
                     <div class="action animate__animated animate__fadeIn">
-                      <a href="#" class="btn btn-theme addToCard"  data-id="{{ $book->id }}">Add to Cart <i class="bi bi-cart-plus"></i></a>
+                      <a href="#" class="btn btn-theme mb-3 addToCard" data-id="{{ $book->id }}" >Add to Cart <i class="bi bi-cart-plus"></i></a>
                     </div>
                   </div>
                   <a href="{{ route('search.buyBook.Details',[$book->isbn]) }}">

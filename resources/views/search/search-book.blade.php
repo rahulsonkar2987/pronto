@@ -41,11 +41,12 @@
           </div>
 
           <div class="col-12 col-md-6">
-            <form method="post" id="sellBooks" action="">
+            <form action="{{ route('search.sellBook') }}"  method="GET" id="sellBooks" >
+              @csrf
               <label>Sell Books</label>
               <div class="row gx-2 clearfix">
                 <div class="col-9 col-md-8">
-                  <input type="text" name="sell" id="sell" class="form-control" placeholder="Enter ISBN here" />
+                  <input type="text" name="sellBook" id="sell" class="form-control" value="{{ $sellBook ?? '' }}" placeholder="Enter ISBN here" />
                 </div>
                 <div class="col-3 col-md-4">
                   <input type="submit" name="submit" id="submit" value="Search" class="w-100" />
@@ -63,10 +64,20 @@
                     <span>
                       @if (session()->has('error'))
                           {{ session()->get('error') }}
+                      @else
+                        {{ $buyBook ?? $sellBook }}
+                        <?php
+                          if (isset($buyBook)) {
+                            $details_page= 'BookPriceRun';
+                          }else{
+                            $details_page= '';
+                          }
+                        ?>
                       @endif
                     </span>
                   </p>
                 </div>
+                @if (isset($buyBook))
                 <div class="search-filter">
                   <select class="form-select me-3">
                     <option value="rating">Rating</option>
@@ -79,6 +90,7 @@
                     <option value="pricing3">Pricing</option>
                   </select>
                 </div>
+                @endif
               </div>
           </div>
         </div>
@@ -91,11 +103,11 @@
                 <div class="row">
                   <div class="col-12 col-md-10 ">
                     <div class="book-details m-auto align-items-center">
-                      <a href="{{ route('search.buyBook.Details',[$book['isbn'] ?? '']) }}">
+                      <a href="{{ route('search.buyBook.Details',[$book['isbn'] ?? '','details_page'=>$details_page]) }}">
                         <img src="{{ asset($book['image']) }}" style="height: 240px" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
                       </a>
                         <div class="about-book">
-                            <h5> <a href="{{ route('search.buyBook.Details',[ $book['isbn'] ?? '']) }}">{{ $book['title'] ?? '' }}</a></h5>
+                            <h5> <a href="{{ route('search.buyBook.Details',[ $book['isbn'] ?? '','details_page'=>$details_page]) }}">{{ $book['title'] ?? '' }}</a></h5>
                             <p>By: <span>{{ $book['author'] ?? '' }}</span></p>
                             <div class="rating">
                               <i class="bi bi-star-fill"></i>
@@ -112,23 +124,17 @@
                   </div>
                   <div class="col-12 col-md-2 text-center m-auto">
                     <div class="action-btn">
-                      <h5 class="mb-3">${{ $book['price'] ?? '' }}</h5>
-                      @if (isset($book['id']))
-
-                        {{-- check session  --}}
-                        @if (session()->has('buyBookCard'))
-                          @if (array_key_exists($book['id'],$buyBookCard))
-                            <a href="{{ route('addToCard.index') }}" class="btn btn-outline-theme mb-3"  >View Cart</a>
-                          @else
-                            <a href="#" class="btn btn-outline-theme mb-3 addToCard" data-id="{{ $book['id'] }}"; >Add to Cart</a>
-                          @endif
-                        @else
-                          <a href="#" class="btn btn-outline-theme mb-3 addToCard" data-id="{{ $book['id'] }}"; >Add to Cart rohit</a>
+                      <h5 class="mb-3">
+                        @if (isset($book['price']))
+                            {{ "$".$book['price'] }}
                         @endif
-                        {{-- check session  --}}
-
-                      @else 
-                      <a href="#" class="btn btn-outline-theme mb-3" >View Amazon</a>
+                      </h5>
+                      @if (isset($book['id']))
+                          <a href="#" class="btn btn-outline-theme mb-3 addToCard" data-id="{{ $book['id'] }}" >Add to Cart</a>
+                      @else
+                          @if (isset($buyBook))
+                          <a href="#" class="btn btn-outline-theme mb-3" >View Amazon</a>
+                          @endif 
                       @endif
                         {{-- <a href="#" class="btn btn-outline-theme mb-3 add_to_card" data-id= {{ $book['id'] ?? '' }} data-isbn="{{ $book['isbn'] }}" >Add to Cart</a> --}}
                       <a href="" class="btn btn-outline-theme mb-3">Sell Book</a>

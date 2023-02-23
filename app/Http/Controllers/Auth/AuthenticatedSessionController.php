@@ -54,8 +54,7 @@ class AuthenticatedSessionController extends Controller
             'first_name'=>$user->first_name,
             'last_name'=>$user->last_name,
             'email'=>$user->email,
-        ]
-        );
+        ]);
 
         return response()->json(['success'=>true]);
     }

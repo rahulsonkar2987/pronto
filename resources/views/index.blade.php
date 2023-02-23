@@ -36,9 +36,8 @@
                       <div class="row gx-2 clearfix">
 
                         <div class="col-9 col-md-8">
-
                           <input type="text" name="buyBook" id="buy" value="" class="form-control" placeholder="Enter ISBN Title or Author here" />
-
+                          <small class="text-danger">@error('buyBook') {{ $message }} @enderror</small>
                         </div>
 
                         <div class="col-3 col-md-4">
@@ -55,7 +54,7 @@
 
                   <div class="col-12 col-md-6 col-lg-6">
 
-                    <form action="{{ route('search.sellBook') }}" method="post" id="sellBooks" action="" class="form">
+                    <form action="{{ route('search.sellBook') }}" method="GET" id="sellBooks" action="" class="form">
 
                       @csrf
 
@@ -66,6 +65,7 @@
                         <div class="col-9 col-md-8">
 
                           <input type="text" name="sellBook" id="sell" class="form-control" placeholder="Enter ISBN here" />
+                          <small class="text-danger">@error('sellBook') {{ $message }} @enderror</small>
 
                         </div>
 

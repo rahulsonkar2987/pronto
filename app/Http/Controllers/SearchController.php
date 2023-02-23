@@ -115,6 +115,16 @@ class SearchController extends Controller
         return $data;
     }
 
+    public function booksSellPrice($isbn)
+    {
+        $data =Http::get('https://booksrun.com/api/price/sell/'.$isbn,[
+            // 'sell'=>$isbn,
+            'key'=>'o7t2dbedip8ixi3avsm8',
+        ])->json();
+
+        return $data['result'];
+    }
+
 
 
         /**
@@ -124,6 +134,12 @@ class SearchController extends Controller
      */
     public function buyBook(Request $request)
     {
+
+
+        $request->validate([
+            'buyBook'=>'required',
+        ]);
+
         $errorMessage = [];
         $buyBook = $request->buyBook;
         if(isset($request->page)){
@@ -132,22 +148,21 @@ class SearchController extends Controller
             $page = 1;
         }
         $total = 0;
-        // return $buyBook;
+
+     
+
         // get local data from isbn number 
         $data = ManageBook::where('isbn',$buyBook)->get();
-
-        if(count($data)=='0'){
         // fetch isbn api 
-
+        if(count($data)=='0'){
             $get = $this->isbn($buyBook);
             if ($get->ok()==true) {    // if data nor found 
                 $decode_json =  $get->json();
-                // $data = $decode_json;
+
                 foreach ($decode_json['data'] as $key => $value) {
                     if (isset($value['authors'])) {
                         $author = implode(',',$value['authors']);
                     }
-
                     $data = $data->push([
                         'title'=>$value['title'] ?? '',
                         'isbn13'=>$value['isbn13'] ?? '',
@@ -166,7 +181,6 @@ class SearchController extends Controller
         // fetch title
         if (count($data)==0) {
             $data = ManageBook::where('title','like','%'.$buyBook.'%')->get();
-
             $get = $this->title(urlencode($buyBook),$page,10);
 
             if ($get->ok()==true) {
@@ -189,11 +203,8 @@ class SearchController extends Controller
         }
         //////
 
-        // return $data;
-        // if ($data[0]['title'] != $buyBook) {
-        //     $data = [];
-        // }
-
+      
+        // fetch author 
         if (count($data)==0) {
         
             // get local data from author number 
@@ -220,7 +231,8 @@ class SearchController extends Controller
                 $request->session()->flash('error','Not Found');
             }
         }
-        ////////////////////////////
+        // fetch author 
+
 
         if (count($data)==0) {
             $request->session()->flash('error','Not Found');
@@ -249,6 +261,12 @@ class SearchController extends Controller
                 $decode_json =  $get->json();
                 // return  $decode_json;
                 foreach ($decode_json['data'] as $key => $value) {
+
+                    $booksSellPrice =  $this->booksSellPrice($isbn);
+                    if ($booksSellPrice['status']=='success') {
+                        $sellPrice = $booksSellPrice['text'];
+                    }
+
                     if (isset($value['authors'])) {
                         $author = implode(',',$value['authors']);
                     }
@@ -262,6 +280,7 @@ class SearchController extends Controller
                     // $data['binding']=$value['binding'] ?? '';
                     $data['pages']=$value['pages'] ?? '';
                     $data['synopsis']=$value['synopsis'] ?? '';
+                    $data['sellPrice']=$sellPrice ?? [];
                 }
                 // return view('search.search-book',compact('data','buyBook'));
             }
@@ -276,9 +295,46 @@ class SearchController extends Controller
         }else{
             $similarBook = ManageBook::inRandomOrder(20)->get();
         }
-        // return $similarBook;
+        return $data;
         return view('search.show-book',compact('data','similarBook'));
     }
+
+    public function sellBook(Request $request)
+    {
+        $request->validate([
+            'sellBook'=>'required',
+        ]);
+        $sellBook = $request->sellBook;
+        $total= 0;
+        $data = ManageBook::where('isbn',$sellBook)->get();
+
+        if(count($data)=='0'){
+
+            $get = $this->isbn($sellBook);
+            if ($get->ok()==true) {    // if data nor found 
+                $decode_json =  $get->json();
+                // $data = $decode_json;
+                foreach ($decode_json['data'] as $key => $value) {
+                    if (isset($value['authors'])) {
+                        $author = implode(',',$value['authors']);
+                    }
+
+                    $data = $data->push([
+                        'title'=>$value['title'] ?? '',
+                        'isbn13'=>$value['isbn13'] ?? '',
+                        'isbn'=>$value['isbn'] ?? '',
+                        'author'=>$author ?? '',
+                        'image'=>$value['image'] ?? '',
+                    ]);
+                }
+            }
+            //////////////////////////////
+
+        }
+
+        return view('search.search-book',compact('data','total','sellBook'));
+    }
+
 
     public function amazonPriceHistory($isbn=null)
     {
