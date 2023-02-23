@@ -38,7 +38,7 @@ if (isset($data['id'])) {
         </div>
         <div class="col-12 col-md-6 col-lg-5">
           <div class="book-description">
-            <h3>{{ $data['title'] }}</h3>
+            <h3>{{ $data['title'] }}rohit</h3>
             <p>By: <span> {{ $data['author'] }}</span></p>
             <div class="rating">
               <i class="bi bi-star-fill"></i>
